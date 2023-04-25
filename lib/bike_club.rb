@@ -14,9 +14,8 @@ class BikeClub
 
 
   def most_rides
-    @bikers.map do |biker|
-      biker.rides.values.count
-      require 'pry'; binding.pry
+    @bikers.max_by do |biker|
+      biker.total_rides
     end
   end
 
