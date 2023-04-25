@@ -22,7 +22,7 @@ class BikeClub
 
   def best_time(ride)
     @bikers.min_by do |biker|
-      if biker.personal_record(ride) == Integer
+      if biker.personal_record(ride) == Float
       biker.personal_record(ride)
       end
     end
@@ -30,7 +30,10 @@ class BikeClub
 
 
   def bikers_eligible(ride)
-
-
+    @bikers.map do |biker|
+      if biker.eligible?(ride)
+        biker
+      end
+    end.compact
   end
 end
