@@ -15,10 +15,23 @@ class Biker
     @acceptable_terrain << terrain
   end
 
-  def log_ride(ride, time)
-    log = Hash.new(0)
-    time_hash = []
-    time_hash << time
-    log[ride] = time_hash
+  def eligible?(ride)
+    if ride.total_distance < @max_distance && @acceptable_terrain.include?(ride.terrain)
+      true
+    else
+      false
+    end
   end
+
+  def log_ride(ride, time)
+    if eligible?(ride)
+      if @rides[ride].nil?
+        @rides[ride] = [time]
+      else
+        @rides[ride] << time
+      end
+    end
+  end
+
+  def personal_record
 end
