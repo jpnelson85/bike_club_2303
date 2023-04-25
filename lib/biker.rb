@@ -40,4 +40,12 @@ class Biker
       @rides[ride].min
     end
   end
+
+  def total_rides
+    total = 0
+    @rides.each do |ride, time|
+      total += @rides[ride].count
+    end
+    total
+  end
 end

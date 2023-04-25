@@ -1,5 +1,6 @@
 class BikeClub
-  attr_reader
+  attr_reader :name,
+              :bikers
 
   def initialize(name)
     @name = name
@@ -8,12 +9,15 @@ class BikeClub
 
 
   def add_biker(biker)
-
+    @bikers << biker
   end
 
 
   def most_rides
-
+    @bikers.map do |biker|
+      biker.rides.values.count
+      require 'pry'; binding.pry
+    end
   end
 
 
@@ -24,6 +28,6 @@ class BikeClub
 
   def bikers_eligible(ride)
 
-    
+
   end
 end
