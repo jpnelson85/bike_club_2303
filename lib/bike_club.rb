@@ -21,7 +21,11 @@ class BikeClub
 
 
   def best_time(ride)
-
+    @bikers.min_by do |biker|
+      if biker.personal_record(ride) == Integer
+      biker.personal_record(ride)
+      end
+    end
   end
 
 

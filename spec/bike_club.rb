@@ -61,7 +61,8 @@ RSpec.describe BikeClub do
     biker2.log_ride(ride2, 65.0)
     hells_angels.add_biker(biker)
     hells_angels.add_biker(biker2)
-    expect(hells_angels.most_rides).to eq(biker)
+    expect(hells_angels.best_time(ride1)).to eq(biker)
+    expect(hells_angels.best_time(ride2)).to eq(biker)
   end
 
   it 'bikers eligible method' do
